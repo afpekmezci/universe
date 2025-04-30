@@ -120,7 +120,9 @@ ALTER SEQUENCE public.galaxy_types_galaxy_type_id_seq OWNED BY public.galaxy_typ
 CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     planet_id integer NOT NULL,
-    name character varying(60) NOT NULL
+    name character varying(60) NOT NULL,
+    has_life boolean DEFAULT false,
+    distance_from_planet integer
 );
 
 
@@ -158,7 +160,8 @@ CREATE TABLE public.planet (
     name character varying(60) NOT NULL,
     age_in_millions_of_years numeric(6,2),
     has_life boolean DEFAULT false NOT NULL,
-    description text
+    description text,
+    distance_from_star integer
 );
 
 
@@ -325,44 +328,44 @@ INSERT INTO public.galaxy_types VALUES (3, 'Barred spiral');
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.moon VALUES (20, 1, 'Moon1');
-INSERT INTO public.moon VALUES (21, 1, 'Moon2');
-INSERT INTO public.moon VALUES (22, 1, 'Moon3');
-INSERT INTO public.moon VALUES (23, 1, 'Moon4');
-INSERT INTO public.moon VALUES (24, 1, 'Moon5');
-INSERT INTO public.moon VALUES (25, 1, 'Moon6');
-INSERT INTO public.moon VALUES (26, 1, 'Moon7');
-INSERT INTO public.moon VALUES (27, 1, 'Moon8');
-INSERT INTO public.moon VALUES (28, 1, 'Moon9');
-INSERT INTO public.moon VALUES (29, 2, 'Moon10');
-INSERT INTO public.moon VALUES (30, 2, 'Moon11');
-INSERT INTO public.moon VALUES (31, 3, 'Moon12');
-INSERT INTO public.moon VALUES (32, 3, 'Moon13');
-INSERT INTO public.moon VALUES (33, 3, 'Moon14');
-INSERT INTO public.moon VALUES (34, 3, 'Moon15');
-INSERT INTO public.moon VALUES (35, 3, 'Moon16');
-INSERT INTO public.moon VALUES (36, 3, 'Moon17');
-INSERT INTO public.moon VALUES (37, 3, 'Moon18');
-INSERT INTO public.moon VALUES (38, 3, 'Moon19');
-INSERT INTO public.moon VALUES (39, 3, 'Moon20');
+INSERT INTO public.moon VALUES (20, 1, 'Moon1', false, NULL);
+INSERT INTO public.moon VALUES (21, 1, 'Moon2', false, NULL);
+INSERT INTO public.moon VALUES (22, 1, 'Moon3', false, NULL);
+INSERT INTO public.moon VALUES (23, 1, 'Moon4', false, NULL);
+INSERT INTO public.moon VALUES (24, 1, 'Moon5', false, NULL);
+INSERT INTO public.moon VALUES (25, 1, 'Moon6', false, NULL);
+INSERT INTO public.moon VALUES (26, 1, 'Moon7', false, NULL);
+INSERT INTO public.moon VALUES (27, 1, 'Moon8', false, NULL);
+INSERT INTO public.moon VALUES (28, 1, 'Moon9', false, NULL);
+INSERT INTO public.moon VALUES (29, 2, 'Moon10', false, NULL);
+INSERT INTO public.moon VALUES (30, 2, 'Moon11', false, NULL);
+INSERT INTO public.moon VALUES (31, 3, 'Moon12', false, NULL);
+INSERT INTO public.moon VALUES (32, 3, 'Moon13', false, NULL);
+INSERT INTO public.moon VALUES (33, 3, 'Moon14', false, NULL);
+INSERT INTO public.moon VALUES (34, 3, 'Moon15', false, NULL);
+INSERT INTO public.moon VALUES (35, 3, 'Moon16', false, NULL);
+INSERT INTO public.moon VALUES (36, 3, 'Moon17', false, NULL);
+INSERT INTO public.moon VALUES (37, 3, 'Moon18', false, NULL);
+INSERT INTO public.moon VALUES (38, 3, 'Moon19', false, NULL);
+INSERT INTO public.moon VALUES (39, 3, 'Moon20', false, NULL);
 
 
 --
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.planet VALUES (1, 1, 'Earth', 1.00, true, NULL);
-INSERT INTO public.planet VALUES (2, 1, 'Mars', 2.00, false, NULL);
-INSERT INTO public.planet VALUES (3, 1, 'Venus', 3.00, false, NULL);
-INSERT INTO public.planet VALUES (4, 1, 'Jupiter', 4.00, false, NULL);
-INSERT INTO public.planet VALUES (5, 1, 'Uranus', 5.00, false, NULL);
-INSERT INTO public.planet VALUES (6, 1, 'Pluton', 6.00, false, NULL);
-INSERT INTO public.planet VALUES (7, 1, 'Mercury', 7.00, false, NULL);
-INSERT INTO public.planet VALUES (8, 1, 'Saturn', 8.00, false, NULL);
-INSERT INTO public.planet VALUES (9, 1, 'Neptune', 9.00, false, NULL);
-INSERT INTO public.planet VALUES (10, 2, 'U-102', 10.00, false, NULL);
-INSERT INTO public.planet VALUES (11, 2, 'U-103', 11.00, false, NULL);
-INSERT INTO public.planet VALUES (12, 3, 'U1020', 12.00, false, NULL);
+INSERT INTO public.planet VALUES (1, 1, 'Earth', 1.00, true, NULL, NULL);
+INSERT INTO public.planet VALUES (2, 1, 'Mars', 2.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (3, 1, 'Venus', 3.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (4, 1, 'Jupiter', 4.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (5, 1, 'Uranus', 5.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (6, 1, 'Pluton', 6.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (7, 1, 'Mercury', 7.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (8, 1, 'Saturn', 8.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (9, 1, 'Neptune', 9.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (10, 2, 'U-102', 10.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (11, 2, 'U-103', 11.00, false, NULL, NULL);
+INSERT INTO public.planet VALUES (12, 3, 'U1020', 12.00, false, NULL, NULL);
 
 
 --
